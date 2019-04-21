@@ -15,6 +15,9 @@ class CreateCardsTable extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name')->nullable(true);
+            $table->string('trello_id');
+            $table->json('trello_data')->default(null);
             $table->timestamps();
         });
     }

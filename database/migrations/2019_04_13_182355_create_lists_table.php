@@ -15,7 +15,13 @@ class CreateListsTable extends Migration
     {
         Schema::create('lists', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name')->nullable(true);
+            $table->boolean('ignored')->default(false);
+            $table->boolean('done')->default(false);
+            $table->string('trello_id');
             $table->timestamps();
+            $table->softDeletes();
+            $table->json('trello_data')->default(null);
         });
     }
 

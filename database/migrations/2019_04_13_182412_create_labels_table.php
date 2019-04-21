@@ -15,7 +15,10 @@ class CreateLabelsTable extends Migration
     {
         Schema::create('labels', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
+            $table->json('trello_data')->default(null);
         });
     }
 

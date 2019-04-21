@@ -15,7 +15,12 @@ class CreateBoardsTable extends Migration
     {
         Schema::create('boards', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('user_id');
+            $table->string('name')->nullable(true);
+            $table->string('trello_id');
             $table->timestamps();
+            $table->softDeletes();
+            $table->json('trello_data')->default(null);
         });
     }
 
