@@ -28,3 +28,7 @@ Route::get('/', function () {
             $content->idList);
     }
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
