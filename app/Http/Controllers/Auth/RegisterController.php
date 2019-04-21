@@ -52,6 +52,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'trello_board' => ['required'],
+            'trello_key' => ['required'],
+            'trello_token' => ['required'],
         ]);
     }
 
@@ -67,6 +70,11 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'config' => [
+                'trello_board' => $data['trello_board'],
+                'trello_key' => $data['trello_key'],
+                'trello_token' => $data['trello_token']
+            ]
         ]);
     }
 }

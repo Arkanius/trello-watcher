@@ -61,6 +61,46 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="trello_token" class="col-md-4 col-form-label text-md-right">{{ __('Trello Token') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="trello_token" type="text" class="form-control{{ $errors->has('trello_token') ? ' is-invalid' : '' }}" name="trello_token" required>
+
+                                @if ($errors->has('trello_token'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('trello_token') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="trello_key" class="col-md-4 col-form-label text-md-right">{{ __('Trello KEY') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="trello_key" type="text" class="form-control{{ $errors->has('trello_key') ? ' is-invalid' : '' }}" name="trello_key" required>
+
+                                @if ($errors->has('trello_key'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('trello_key') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="trello_board" class="col-md-4 col-form-label text-md-right">{{ __('Trello Board') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="trello_board" type="text" class="form-control{{ $errors->has('trello_board') ? ' is-invalid' : '' }}" name="trello_board" required>
+
+                                @if ($errors->has('trello_board'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('trello_board') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
