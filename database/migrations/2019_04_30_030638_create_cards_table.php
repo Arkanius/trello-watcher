@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLabelsTable extends Migration
+class CreateCardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,18 @@ class CreateLabelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('labels', function (Blueprint $table) {
+        Schema::create('cards', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->timestamps();
-            $table->softDeletes();
+            $table->string('name')->nullable(true);
+            $table->string('trello_id');
             $table->json('trello_data')->default(null);
+            $table->timestamps();
+            $table->unsignedBigInteger('board_id');
+
+            $table->foreign('board_id')
+                ->references('id')
+                ->on('boards')
+                ->onDelete('cascade');
         });
     }
 
@@ -29,6 +35,6 @@ class CreateLabelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('labels');
+        Schema::dropIfExists('cards');
     }
 }

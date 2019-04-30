@@ -19,9 +19,15 @@ class CreateListsTable extends Migration
             $table->boolean('ignored')->default(false);
             $table->boolean('done')->default(false);
             $table->string('trello_id');
+            $table->unsignedBigInteger('board_id');
             $table->timestamps();
             $table->softDeletes();
             $table->json('trello_data')->default(null);
+
+            $table->foreign('board_id')
+                ->references('id')
+                ->on('boards')
+                ->onDelete('cascade');
         });
     }
 
