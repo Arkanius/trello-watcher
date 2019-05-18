@@ -12,12 +12,6 @@ use GuzzleHttp\Client;
 |
 */
 
-Route::get('/', function () {
-    $key = env('TRELLO_KEY');
-    $token = env('TRELLO_TOKEN');
-    $board = env('TRELLO_BOARD');
+Route::get('/{any?}', function () {
+    return view('welcome');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
