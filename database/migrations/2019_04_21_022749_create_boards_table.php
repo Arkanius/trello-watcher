@@ -15,17 +15,17 @@ class CreateBoardsTable extends Migration
     {
         Schema::create('boards', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
+//            $table->unsignedBigInteger('user_id');
             $table->string('name')->nullable(true);
             $table->string('trello_id');
             $table->timestamps();
             $table->softDeletes();
             $table->json('trello_data')->default(null);
 
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+//            $table->foreign('user_id')
+//                ->references('id')
+//                ->on('users')
+//                ->onDelete('cascade');
         });
     }
 

@@ -37,4 +37,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'config' => 'array'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function boards()
+    {
+        return $this->belongsToMany('App\Board');
+    }
 }
